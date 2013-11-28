@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LibreJS</title>
+    <script type="text/javascript" src="scripts/plugin.injection.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<h1>demo</h1>
+<script type="text/javascript">
+    // N'affecte pas la validité W3C du site.
+    //<![CDATA[
+        // Dev
+        var Libre = Libre = window.Libre || {};
+
+        ;(function(window, document, ud){
+                var src = 'inwebo.dev/libreframework/scripts/librelib.js';
+                var srcInjection = 'inwebo.dev/libreframework/scripts/plugin.injection.js';
+                var srcClient = 'inwebo.dev/libreframework/scripts/client.js';
+
+                // Attention au https
+                // Sera concaténé
+                var host = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+                document.write(unescape("%3Cscript charset='utf-8' src='" + host + src + "' type='text/javascript'%3E%3C/script%3E"));
+                document.write(unescape("%3Cscript charset='utf-8' src='" + host + srcInjection + "' type='text/javascript'%3E%3C/script%3E"));
+                document.write(unescape("%3Cscript charset='utf-8' src='" + host + srcClient + "' type='text/javascript'%3E%3C/script%3E"));
+        })(window, document);
+    //]]>
+</script>
+</body>
+</html>
+
+        <!--
+                var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+        document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+                        -->
