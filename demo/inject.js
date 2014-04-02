@@ -1,8 +1,3 @@
-/**
- * Bootstrap de l'application
- * le micro framework doit être disponible
- *
- */
 ;(function(window, ud){
 
     /**
@@ -19,16 +14,16 @@
 
      new window.Libre.Plugins.Inject({
         js:[
-            "http://www.inwebo.dev/bookmarklet/scripts/bak.js"
+            "http://www.inwebo.dev/bookmarklet/demo/bak.js"
         ],
         css:[
             "http://www.inwebo.dev/bookmarklet/style.css"
         ]
      }).onReady(function() {
-        console.log("dependencies ready");
+        console.log( "Dependencies ready." );
 
      }).onError(function(){
-        console.log("dependencies error");
+        console.log( "Dependencies error." );
      });
 // http://bookmarks.inwebo.net/index.php/categorie/Incoming/1
 

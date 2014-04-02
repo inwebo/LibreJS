@@ -2,35 +2,38 @@
 <html>
 <head>
     <title>LibreJS</title>
-    <script type="text/javascript" src="scripts/plugin.injection.js"></script>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script type="text/javascript" src="base/array.js"></script>
+    <script type="text/javascript" src="base/document.js"></script>
+    <script type="text/javascript" src="base/object.js"></script>
+    <script type="text/javascript" src="base/string.js"></script>
 </head>
 <body>
-<h1>demo</h1>
-<script type="text/javascript">
-    // N'affecte pas la validité W3C du site.
-    //<![CDATA[
-        // Dev
-        var Libre = Libre = window.Libre || {};
-
-        ;(function(window, document, ud){
-                var src = 'inwebo.dev/libreframework/scripts/librelib.js';
-                var srcInjection = 'inwebo.dev/libreframework/scripts/plugin.injection.js';
-                var srcClient = 'inwebo.dev/libreframework/scripts/client.js';
-
-                // Attention au https
-                // Sera concaténé
-                var host = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-                document.write(unescape("%3Cscript charset='utf-8' src='" + host + src + "' type='text/javascript'%3E%3C/script%3E"));
-                document.write(unescape("%3Cscript charset='utf-8' src='" + host + srcInjection + "' type='text/javascript'%3E%3C/script%3E"));
-                document.write(unescape("%3Cscript charset='utf-8' src='" + host + srcClient + "' type='text/javascript'%3E%3C/script%3E"));
-        })(window, document);
-    //]]>
-</script>
+<h1>LibreJS</h1>
+    <h2><a href="base/">Base</a></h2>
+        <h3>
+            <a href="base/array.js">Array</a></h3>
+            <ul>
+                <li>Array.prototype.forEach</li>
+                <li>Object.prototype.isArray</li>
+            </ul>
+        <h3>
+            <a href="base/document.js">Document</a></h3>
+            <ul>
+                <li>document.__proto__.getElementsByAttr</li>
+                <li>document.__proto__.getElementsByAttrValue</li>
+            </ul>
+        <h3>
+            <a href="base/object.js">Object</a></h3>
+            <ul>
+                <li>Object.prototype.merge</li>
+                <li>Object.prototype.isArray</li>
+            </ul>
+        <h3>
+            <a href="base/string.js">String</a></h3>
+            <ul>
+                <li>String.prototype.contains</li>
+                <li>String.prototype.toNamespace</li>
+            </ul>
 </body>
 </html>
-
-        <!--
-                var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-        document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-                        -->
