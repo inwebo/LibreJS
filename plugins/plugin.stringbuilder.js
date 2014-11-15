@@ -1,13 +1,14 @@
+//<![CDATA[
 /**
  * Objet permettant la concaténation de string. Est beaucoup plus rapide que la concaténation avec l'opérateur "+";
  *
  * http://jsperf.com/string-concat-vs-array-join-10000/8
- * @author : <hannotin_julien@yahoo.fr>
  */
 ;(function(window, document, ud){
+    var L   = window.LibreJs = window.LibreJs || {};
+    var Lp  = L.Plugins      = L.Plugins      || {};
 
-    StringBuilder = function() {
-        var words;
+    Lp.StringBuilder = function() {
 
         var plugin = this;
 
@@ -44,3 +45,4 @@
     };
 
 })(window, document);
+//]]>

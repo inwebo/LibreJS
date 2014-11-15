@@ -1,10 +1,10 @@
-/**
- * Namespace des emails.
- * @author : <hannotin_julien@yahoo.fr>
- */
-;(function(window, ud){
 //<![CDATA[
-    Mail = {
+'use strict';
+;(function(window, document, ud){
+    var L   = window.LibreJs = window.LibreJs   || {};
+    var Lp  = L.Plugins      = L.Plugins        || {};
+
+    Lp.Mail = {
         /**
          * Simple vérification d'une adresse mail.
          * @param email String L'email à tester.
@@ -15,5 +15,5 @@
             return regexPattern.test(email);
         }
     }
-//]]>
 })(window);
+//]]>

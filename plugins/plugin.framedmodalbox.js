@@ -1,9 +1,10 @@
+//<![CDATA[
 /**
  * Fenêtre modale légère par iframe.
  *
- * @author <julien@ctoutvert.com>, <christophe@ctoutvert.com>
+ * @author <inwebo@gmail.com>
  * @param frameSrc La source de l'iframe à intégrée dans la fenêtre courante
- * @author : <hannotin_julien@yahoo.fr>
+ * @thanks Christophe, refactoring de son code fait une nuit d'insomnie !
  */
 var FramedLightBox = function( frameSrc ) {
     var plugin = this;
@@ -158,5 +159,5 @@ var FramedLightBox = function( frameSrc ) {
     };
 
     init();
-
 };
+//]]>

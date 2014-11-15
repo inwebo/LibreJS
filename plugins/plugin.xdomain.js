@@ -1,3 +1,4 @@
+//<![CDATA[
 /**
  * Cross domain communication.
  *
@@ -6,7 +7,7 @@
  * https://developer.mozilla.org/fr/docs/Web/API/Window.postMessage
  */
 ;(function(window, document, ud){
-    //<![CDATA[
+
     XD = Xdomain = CrossDomain = {
 
         /**
@@ -61,5 +62,5 @@
 
         }
     };
-    //]]>
 })(window, document);
+//]]>

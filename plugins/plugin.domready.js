@@ -1,5 +1,5 @@
-;(function(window, ud){
 //<![CDATA[
+;(function(window, ud){
 /**
  * Dom ready universel (FF, Chrome / Chromium, Opera, IE >= 9, Safari).
  * N'est pas aussi fin que Jquery, Prototype, Dojo mais pèse 938 o & 158 o minifié.
@@ -11,7 +11,6 @@
  * </code>
  *
  * @type {{ready: Function}}
- * @author : <hannotin_julien@yahoo.fr>
  * @todo Permettre une liste de callback.
  */
 Dom = {
@@ -37,5 +36,5 @@ Dom = {
         init();
 	}
 };
-//]]>
 })(window);
+//]]>

@@ -1,9 +1,8 @@
+//<![CDATA[
 /**
  * Sotckage de données dans le navigateur, par session / permanent.
- * @author : <hannotin_julien@yahoo.fr>
  */
 ; (function(window, ud){
-    //<![CDATA[
     SessionStorage = {
         set : function(key,value, context) {
             var _context = context || window;
@@ -144,5 +143,5 @@
         }
 
     };
-    //]]>
 })(window);
+//]]>

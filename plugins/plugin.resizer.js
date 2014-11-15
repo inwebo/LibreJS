@@ -1,5 +1,5 @@
 /**
- * @author : <hannotin_julien@yahoo.fr>
+ * @link http://www.creativejuiz.fr/blog/tutoriels/un-onresize-ou-onscroll-plus-performant-en-js
  */
 ; (function (window, document, String, ud) {
     window.Libre = window.Libre || {};
@@ -19,7 +19,7 @@
         var plugin = this;
 
         plugin.init = function (parentNode, childnode) {
-                        addListener();
+            addListener();
         };
 
         var addListener = function () {

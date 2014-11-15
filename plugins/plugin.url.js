@@ -1,6 +1,3 @@
-/**
- * @author : <hannotin_julien@yahoo.fr>
- */
 ; (function (window, document, ud) {
 
     Url = {
