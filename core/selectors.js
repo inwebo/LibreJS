@@ -1,110 +1,108 @@
 //<![CDATA[
-'use strict';
+
 ;(function(window, document, ud){
     var w = window;
-    var d = w.document;
-    var L   = w.LibreJs = window.LibreJs || {};
+    var d = document;
+    var L = w.LibreJs = window.LibreJs || {};
 
     L.Selector = function(selector, context) {
 
         var plugin = this;
 
-        plugin.context = null;
+        plugin.context = context;
         plugin.selector = "";
         plugin.elements = [];
 
         plugin.init             = function (selector, context) {
             // Context
-            plugin.context = (context !== ud) ? context : null;
+            plugin.context = (context || null);
             // Trim
             plugin.selector = selector.trim();
             // Delete multiple spaces
             plugin.selector = cleanSpaces(plugin.selector);
-
-            // Non, le split se fait sur les espaces.
             // Split
             plugin.elements = plugin.selector.split(' ');
 
             return selectorStrategy();
         };
 
-        var cleanSpaces         = function(_string) {
-            return _string.replace(/\s{2,}/g, ' ');
-        };
 
         var selectorStrategy    = function() {
             var nodes   = null;
-            var total   = plugin.elements.length;
-            var pointer = 0;
 
+            // i : item
+            // e : index
             plugin.elements.forEach(function(i,e){
-
-                if(pointer <= total) {
-
-                    pointer++;
+                // #
+                if( isId(i) ) {
+                    nodes = selectById(type);
                 }
                 else {
-
-                }
-
-                var selector = i.slice(1);
-
-                // #
-                if( isId(i) === true ) {
-                    nodes = selectById(selector);
-                }
-                // .
-                else if(isClass(i) === true) {
-                    if( isMultipleClasses(i) ) {
-                        selector = selector.replaceAll('.', ' ');
-                        nodes = selectByClass(selector);
+                    if(isClass(i)) {
+                        nodes = selectByClass(i.replaceAll('.', ' ').trim());
                     }
-                    else {
-                        nodes = selectByClass(selector);
+                    if(isTagName(i)) {
+                        nodes = selectByTagName(i);
                     }
                 }
-                // tag ?
-                else if(isTagName(i) === true) {
-                    nodes = selectByTagName(i);
-                }
-
+                plugin.context = nodes;
             });
-            return nodes;
+            return plugin.context;
         };
 
+        //region Assertions
         var isId                = function(_string){
-            return _string.contains("#",0);
+            return _string[0].contains("#");
         };
 
         var isClass             = function(_string){
-            return _string.contains(".",0);
+            return _string[0].contains(".");
         };
 
         var isTagName           = function(_string){
-            return ( isId(_string) === false && isClass(_string) === false);
+            return (d.getElementsByTagName(_string).length > 0) ? true : false;
         };
+        //endregion
 
-        var isMultipleClasses   = function(_string){
-            var occurences = (_string.match(/\./g) || []).length;
-            return (occurences > 1 ) ? true : false;
-        };
-
+        //region Selectors
         var selectById          = function(_string){
-            return( plugin.context === null )               ?
-                d.getElementById(_string) :
-                plugin.context.getElementById(_string);
+            return d.getElementById(_string);
         };
 
         var selectByClass       = function(_string){
-            return d.getElementsByClassName(_string);
+            var e  = ( plugin.context || d ).getElementsByClassName(_string);
+            return (e.length>0) ? e : null;
         };
 
         var selectByTagName     = function(_string){
             return d.getElementsByTagName(_string);
         };
+        //endregion
+
+        //region Helpers
+        var cleanSpaces         = function(_string) {
+            return _string.replace(/\s{2,}/g, ' ');
+        };
+        //endregion
 
         return plugin.init(selector, context);
     };
 
+    /**
+     * ReplaceAll
+     */
+    if (!String.prototype.replaceAll) {
+        /**
+         * Replace all find string by replace string.
+         */
+        String.prototype.replaceAll = function(find, replace){
+
+            var escapeRegEx = function(_string){
+                return _string.replace(/([.*+?^=!:${}()|\[\]\/\\])/g, "\\$1");
+            };
+
+            return this.replace(new RegExp(escapeRegEx(find), 'g'), replace);
+        };
+    }
 })(window, document);
 //]]>
