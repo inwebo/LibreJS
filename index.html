@@ -12,7 +12,20 @@
         var w = window;
         var d = w.document;
         var L = w.LibreJs = window.LibreJs || {};
+        var Lp = w.LibreJs.Plugins = window.LibreJs.Plugins || {};
         _ = L.Selector;
+
+        function httpGet(theUrl)
+        {
+            var xmlHttp = null;
+
+            xmlHttp = new XMLHttpRequest();
+            xmlHttp.open( "GET", theUrl, false );
+            xmlHttp.send( null );
+            return xmlHttp.responseText;
+        }
+
+        console.log(httpGet('http://www.inwebo.dev'));
 
     </script>
 </head>
@@ -20,8 +33,9 @@
 <span class="hip hop">
 
 </span>
-<div>
+
 <h1>LibreJS</h1>
+    <a href="upload.html">upload</a></h3>
     <h2><a href="core/">Base</a></h2>
         <h3>
             <a href="core/array.js">Array</a></h3>
@@ -48,5 +62,5 @@
                 <li>String.prototype.toNamespace</li>
             </ul>
 </body>
-</div>
+
 </html>
