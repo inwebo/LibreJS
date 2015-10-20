@@ -18,6 +18,18 @@
                 }
             }
         };
+    };
+
+    if (!Array.prototype.contains) {
+        Array.prototype.contains = function(string) { return this.indexOf(string) != -1; };
+    };
+
+    if (!Array.prototype.diff) {
+        Array.prototype.diff = function (a) {
+            return this.filter(function (i) {
+                return a.indexOf(i) < 0;
+            });
+        };
     }
 })(window, document, Array);
 //]]>
