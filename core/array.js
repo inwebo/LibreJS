@@ -30,6 +30,18 @@
                 return a.indexOf(i) < 0;
             });
         };
-    }
+    };
+
+    if(!Array.prototype.random) {
+        Array.prototype.random = function(){
+            return this[Math.floor(Math.random() * this.length)];
+        };
+    };
+
+    if(!Array.prototype.removeElt) {
+        Array.prototype.removeElt = function(index){
+            return this.splice(index, 1);
+        };
+    };
 })(window, document, Array);
 //]]>
